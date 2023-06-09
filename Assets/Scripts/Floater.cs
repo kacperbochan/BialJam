@@ -11,12 +11,19 @@ public class Floater : MonoBehaviour
     public int floaterCount=1;
     public float waterDrag = 0.99f;
     public float waterAngularDrag = 0.5f;
+    public float offset ;
+    public GameObject parent;
 
+    private void Start()
+    {
+        parent = transform.parent.gameObject;
+
+    }
 
     private void FixedUpdate()
     {
         rigidbody.AddForceAtPosition(Physics.gravity/floaterCount, transform.position, ForceMode.Acceleration);
-        float waveHeight = WaveManager.instance.GetWaveHeight(transform.position.x);
+        float waveHeight = WaveManager.instance.GetWaveHeight(transform.position.x+offset+parent.transform.position.x);
         if (transform.position.y < waveHeight)
         { 
             float displacementMultiplier = Mathf.Clamp01((waveHeight-transform.position.y) / depthBeforeSubmerged) * displacementAmount;
