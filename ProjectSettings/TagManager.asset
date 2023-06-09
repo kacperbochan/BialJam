@@ -8,6 +8,7 @@ TagManager:
   - Sign
   - Floor
   - Target
+  - Wall
   layers:
   - Default
   - TransparentFX
