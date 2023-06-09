@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Segment.meta
 guid: 0eb41736b3345bf46b001a535e852d45
+========
+guid: 4c21004176850fb47bcf0bebcc5b3dff
+>>>>>>>> 1114e7c477e05b4ac7c33b6a11fc6fd750b3db11:Assets/Ship.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
