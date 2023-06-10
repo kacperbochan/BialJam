@@ -52,7 +52,7 @@ public class ShipMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (velocity > 1)
-            maxSpeed += 550 * Time.deltaTime / Mathf.Pow(maxSpeed, 1.02f);
+            maxSpeed += 450 * Time.deltaTime / Mathf.Pow(maxSpeed, 1.2f);
         else
             maxSpeed = 10;
 

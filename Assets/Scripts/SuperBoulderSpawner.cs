@@ -7,7 +7,7 @@ public class SuperBoulderSpawner : MonoBehaviour
     public GameObject boulder;
     void Start()
     {
-        InvokeRepeating("BoulderTime", 0.5f, 0.5f);  //1s delay, repeat every 1s
+        InvokeRepeating("BoulderTime", 1f, 1f);  //1s delay, repeat every 1s
     }
     void BoulderTime()
     {
