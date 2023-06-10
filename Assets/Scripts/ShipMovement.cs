@@ -32,7 +32,7 @@ public class ShipMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
-    void setAnimation()
+    void setAnimation(float rotationForce)
     {
     	if (rotationForce > 0)
 		{
@@ -63,7 +63,7 @@ public class ShipMovement : MonoBehaviour
 
         rotationForce = wheelRotation;
 
-
+        setAnimation(rotationForce);
 
 		rigidBody.AddForce(new Vector3(windDirection.x * windForce, windDirection.y * windForce, 0), ForceMode.Acceleration);
         velocity=rigidBody.velocity.magnitude;

@@ -7,16 +7,20 @@ public class OverallBarellReaction : MonoBehaviour
 	public GameObject canvas;
 	public bool passed = false;
 
+	//event zostaje "wyl¹czony"
 	public void Pass()
 	{
 		passed = true;
 	}
 
+	//event
 	void OnTriggerEnter(Collider other)
 	{
-		Wrong();
+		//Wrong();
+		//pass
 	}
 
+	//usun tarcze
 	public void Wrong()
 	{
 		if (!passed)
