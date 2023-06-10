@@ -32,6 +32,22 @@ public class ShipMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
     }
 
+    void setAnimation()
+    {
+    	if (rotationForce > 0)
+		{
+			Viking.GetComponent<PlayerViking>().PlayAnimRight();
+        }   
+        if (rotationForce < 0)
+        {
+	        Viking.GetComponent<PlayerViking>().PlayAnimLeft();
+        }
+        if (rotationForce == 0)
+        {
+	        Viking.GetComponent<PlayerViking>().SetIddle();
+        }
+    }
+
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -47,8 +63,15 @@ public class ShipMovement : MonoBehaviour
 
         rotationForce = wheelRotation;
 
+<<<<<<< Updated upstream
 
         rigidBody.AddForce(new Vector3(windDirection.x * windForce, windDirection.y * windForce, 0), ForceMode.Acceleration);
+=======
+        setAnimation();
+
+
+		rigidBody.AddForce(new Vector3(windDirection.x * windForce, windDirection.y * windForce, 0), ForceMode.Acceleration);
+>>>>>>> Stashed changes
         velocity=rigidBody.velocity.magnitude;
 
 
