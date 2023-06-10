@@ -22,7 +22,7 @@ public class Tarcze : MonoBehaviour
     public void addShield(int i)
 	{
 		GameObject shield = Instantiate(shieldPrefab, transform);
-		shield.transform.position = new Vector3(30 + offset, 30, 0);
+		shield.transform.position = new Vector3(0 + offset, 0, 0);
 		offset += 60;
 		clone[i] = shield;
 	}
