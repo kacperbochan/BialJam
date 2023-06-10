@@ -48,15 +48,15 @@ public class ShipMovement : MonoBehaviour
 
         if(rotationForce > 0)
         {
-            Viking.GetComponent<PlayerViking>().PlayAnimRight();
+            //Viking.GetComponent<PlayerViking>().PlayAnimRight();
         }
 		if (rotationForce < 0)
 		{
-			Viking.GetComponent<PlayerViking>().PlayAnimLeft();
+			//Viking.GetComponent<PlayerViking>().PlayAnimLeft();
 		}
 		if (rotationForce == 0)
 		{
-			Viking.GetComponent<PlayerViking>().SetIddle();
+			//Viking.GetComponent<PlayerViking>().SetIddle();
 		}
 
 		rigidBody.AddForce(new Vector3(windDirection.x * windForce, windDirection.y * windForce, 0), ForceMode.Acceleration);

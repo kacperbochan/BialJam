@@ -29,7 +29,7 @@ public class MAinMenu : MonoBehaviour
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
 
         // changed scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
