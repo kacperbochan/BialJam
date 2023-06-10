@@ -63,15 +63,9 @@ public class ShipMovement : MonoBehaviour
 
         rotationForce = wheelRotation;
 
-<<<<<<< Updated upstream
-
-        rigidBody.AddForce(new Vector3(windDirection.x * windForce, windDirection.y * windForce, 0), ForceMode.Acceleration);
-=======
-        setAnimation();
 
 
 		rigidBody.AddForce(new Vector3(windDirection.x * windForce, windDirection.y * windForce, 0), ForceMode.Acceleration);
->>>>>>> Stashed changes
         velocity=rigidBody.velocity.magnitude;
 
 
