@@ -51,7 +51,7 @@ public class ShipMovement : MonoBehaviour
         rigidBody.AddForce(new Vector3(Mathf.Cos(piDeegre)*maxSpeed,0,-Mathf.Sin(piDeegre)*maxSpeed),ForceMode.Force);
         if (wheelRotation != 0)// skret zalezny 
         {
-            maxSpeed = maxSpeed *(1-(Mathf.Abs(wheelRotation))/500);
+            maxSpeed = maxSpeed *(1-(Mathf.Abs(wheelRotation))/300);
             transform.RotateAround(rotationPoint.transform.position, Vector3.up, roatationSpeed*Time.deltaTime*wheelRotation *velocity);
         }
         
