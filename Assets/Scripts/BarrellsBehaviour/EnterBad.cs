@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnterBad : MonoBehaviour
 {
+	public GameObject judge;
 	void OnTriggerEnter(Collider other)
 	{
-		GetComponent<OverallBarellReaction>().Wrong();
+		judge.GetComponent<OverallBarellReaction>().Wrong();
 	}
 }
