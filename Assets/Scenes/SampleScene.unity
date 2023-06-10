@@ -8462,6 +8462,7 @@ MonoBehaviour:
   velocity: 1
   anchor: 0
   rotationPoint: {fileID: 854268373}
+  Viking: {fileID: 1921615909}
 --- !u!54 &494869481
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16183,7 +16184,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e984fdffbf82718ba748c105c809fa7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1921615911}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e984fdffbf82718ba748c105c809fa7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1921615910}
   m_SourcePrefab: {fileID: 100100000, guid: 8e984fdffbf82718ba748c105c809fa7, type: 3}
 --- !u!4 &849354567 stripped
 Transform:
@@ -50959,6 +50966,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4339156876874496403, guid: 0d4efb0e728cb28408a923e24556d778, type: 3}
   m_PrefabInstance: {fileID: 3942898533084327524}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1921615909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e984fdffbf82718ba748c105c809fa7, type: 3}
+  m_PrefabInstance: {fileID: 849354566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1921615910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921615909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46b02a46823dba46997a0f6e0248a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1921615911}
+--- !u!95 &1921615911
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921615909}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 35e01dd22c2d2e04e8caf18fee59f876, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1928408443
 GameObject:
   m_ObjectHideFlags: 0
