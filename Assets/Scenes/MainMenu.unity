@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   right: 1
-  outerRigidbody: {fileID: 1155470140}
+  rigidbody: {fileID: 1155470140}
   depthBeforeSubmerged: 1
   displacementAmount: 6
   floaterCount: 4
@@ -2348,7 +2348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   right: 1
-  outerRigidbody: {fileID: 1155470140}
+  rigidbody: {fileID: 1155470140}
   depthBeforeSubmerged: 1
   displacementAmount: 6
   floaterCount: 4
@@ -2651,6 +2651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d41cecd0dbb5b446add6801bd0280ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  steeringWheel: {fileID: 0}
   rigidBody: {fileID: 1155470140}
   offset: 0
   rotationForce: 0
@@ -3486,7 +3487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   right: 1
-  outerRigidbody: {fileID: 1155470140}
+  rigidbody: {fileID: 1155470140}
   depthBeforeSubmerged: 1
   displacementAmount: 6
   floaterCount: 4
@@ -3731,7 +3732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   right: 1
-  outerRigidbody: {fileID: 1155470140}
+  rigidbody: {fileID: 1155470140}
   depthBeforeSubmerged: 1
   displacementAmount: 6
   floaterCount: 4
