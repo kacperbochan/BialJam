@@ -23,6 +23,8 @@ public class ShipMovement : MonoBehaviour
     public float velocity = 0;
     public float anchor = 0;
     public GameObject rotationPoint;
+
+    public GameObject Viking;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +46,20 @@ public class ShipMovement : MonoBehaviour
 
         rotationForce = wheelRotation;
 
-        rigidBody.AddForce(new Vector3(windDirection.x * windForce, windDirection.y * windForce, 0), ForceMode.Acceleration);
+        if(rotationForce > 0)
+        {
+            Viking.GetComponent<PlayerViking>().PlayAnimRight();
+        }
+		if (rotationForce < 0)
+		{
+			Viking.GetComponent<PlayerViking>().PlayAnimLeft();
+		}
+		if (rotationForce == 0)
+		{
+			Viking.GetComponent<PlayerViking>().SetIddle();
+		}
+
+		rigidBody.AddForce(new Vector3(windDirection.x * windForce, windDirection.y * windForce, 0), ForceMode.Acceleration);
         velocity=rigidBody.velocity.magnitude;
 
 
