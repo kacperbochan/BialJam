@@ -409,6 +409,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 963194228}
     m_Modifications:
+    - target: {fileID: 2501757149860776556, guid: 6ae4ac483e79c8049a489a39c9344054, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -36.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501757149860776556, guid: 6ae4ac483e79c8049a489a39c9344054, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4111299398200405647, guid: 6ae4ac483e79c8049a489a39c9344054, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -419,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4111299398200405647, guid: 6ae4ac483e79c8049a489a39c9344054, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 50
+      value: 47.7
       objectReference: {fileID: 0}
     - target: {fileID: 4111299398200405647, guid: 6ae4ac483e79c8049a489a39c9344054, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4455,6 +4463,9 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4711208715938537054, guid: 38461e3f6fc0f6c419dd8f8bc2d75a3d, type: 3}
+  sensitivity: {x: 200, y: -200}
+  maxVerticalCameraAngle: 20
+  maxHorizontalCameraAngle: 360
 --- !u!1001 &1103019536
 PrefabInstance:
   m_ObjectHideFlags: 0
