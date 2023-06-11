@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,12 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class MicrophoneInput : MonoBehaviour
 {
+    public GameManager manager;
+
     public bool isActive = true;
     public bool wasActive = false;
+    
+    private List<VoiceSwitch> toSwitch = new List<VoiceSwitch>();
 
     private string selectedDevice;
     private AudioSource audioSource;
     public float volume;
+    
 
     public float[] volumeHistory = new float[3] { 0, 0, 0 };
     public bool currentHigh = false;
@@ -75,6 +79,7 @@ public class MicrophoneInput : MonoBehaviour
                     {
                         ShowRune(1);
                         chantIndex++;
+                        Debug.Log("Speed UP");
                         Debug.Log("ting sound");
                     }
                 }
@@ -85,6 +90,7 @@ public class MicrophoneInput : MonoBehaviour
                     {
                         ShowRune(2);
                         chantIndex++;
+                        switchAll();
                         Debug.Log("ting sound");
                     }
                 }
@@ -113,6 +119,7 @@ public class MicrophoneInput : MonoBehaviour
             sampleIndex = 0;
 
             ClearChant();
+            Debug.Log("Rune Break Sound");
             chantIndex = 0;
         }
     }
@@ -137,15 +144,23 @@ public class MicrophoneInput : MonoBehaviour
         chantIndex = 0; count = 0;
     }
 
-    IEnumerator waiter()
+    public void AddToSwitch(VoiceSwitch switcher)
     {
-
-        //Wait for 4 seconds
-        yield return new WaitForSecondsRealtime(4);
-
-
-        //Wait for 2 seconds
-        yield return new WaitForSecondsRealtime(2);
-
+        toSwitch.Add(switcher);
     }
+
+    public void RemoveToSwitch(VoiceSwitch switcher)
+    {
+        toSwitch.Remove(switcher);
+    }
+
+    public void switchAll()
+    {
+        foreach (VoiceSwitch switcher in toSwitch)
+        {
+            switcher.SwitchThis();
+        }
+    }
+
+
 }
