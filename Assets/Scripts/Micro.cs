@@ -10,7 +10,7 @@ public class MicrophoneInput : MonoBehaviour
 
     private string selectedDevice;
     private AudioSource audioSource;
-    public float volume { get; private set; }
+    public float volume;
 
     private float[] volumeHistory = new float[3] { 0, 0, 1 };
     private bool currentHigh = false;
@@ -58,7 +58,7 @@ public class MicrophoneInput : MonoBehaviour
                 volumeHistory[sampleIndex] = volume > 4 ? 1 : 0;
                 sampleIndex = (sampleIndex + 1) % 3;
 
-                if (volumeHistory.Sum() / 3 > 5)
+                if (volumeHistory.Sum() > 1)
                 {
                     if (currentHigh == false)
                     {
