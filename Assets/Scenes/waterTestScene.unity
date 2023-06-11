@@ -5012,9 +5012,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Projekt - Bart\u0142omiej Chmielewski\nMuzyka\nAmongus - Bart\u0142omiej
-    Chmielewski\nGrafika - Adam Karolin\nOpierdalanie si\u0119 - Tomasz D\u0105browski\nPomoc
-    moralna i psychiczna - Marcel Herman"
+  m_text: "ROAD TO VALHALLA\n\nProjekt - Bart\u0142omiej Chmielewski\nMuzyka\nAmongus
+    - Bart\u0142omiej Chmielewski\nGrafika - Adam Karolin\nOpierdalanie si\u0119
+    - Tomasz D\u0105browski\nPomoc moralna i psychiczna - Marcel Herman"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
