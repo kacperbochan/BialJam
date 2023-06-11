@@ -1,28 +1,33 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(AudioSource))]
 public class MicrophoneInput : MonoBehaviour
 {
-    public bool isActive = false;
+    public bool isActive = true;
     public bool wasActive = false;
 
     private string selectedDevice;
     private AudioSource audioSource;
     public float volume;
 
-    private float[] volumeHistory = new float[3] { 0, 0, 1 };
-    private bool currentHigh = false;
-    private float elapsed = 0f;
-    private int count = 0;
-    private int sampleIndex = 0;
+    public float[] volumeHistory = new float[3] { 0, 0, 0 };
+    public bool currentHigh = false;
+    public float elapsed = 0f;
+    public int count = 0;
+    public int sampleIndex = 0;
 
-    private int[] chant = new int[3] { 0, 0, 0 };
-    private int chantIndex = 0;
+    public List<GameObject> Words;
+    public int chantIndex = 0;
 
     void Start()
     {
+
+        ClearChant();
+
         // SprawdŸ, czy s¹ dostêpne mikrofony
         if (Microphone.devices.Length <= 0)
         {
@@ -42,7 +47,7 @@ public class MicrophoneInput : MonoBehaviour
             wasActive = true; 
 
             elapsed += Time.deltaTime * 5f;
-            if (elapsed >= 1f)
+            if (elapsed >= 1f && chantIndex != 2) 
             {
                 int sampleSize = 64;
                 float[] samples = new float[sampleSize];
@@ -55,56 +60,43 @@ public class MicrophoneInput : MonoBehaviour
 
                 volume = sum / sampleSize * 100;
 
-                volumeHistory[sampleIndex] = volume > 4 ? 1 : 0;
-                sampleIndex = (sampleIndex + 1) % 3;
+                volumeHistory[sampleIndex] = volume > 8 ? 1 : 0;
+                sampleIndex = (sampleIndex + 1) % 2;
 
-                if (volumeHistory.Sum() > 1)
+                if (volumeHistory.Sum() == 2)
                 {
-                    if (currentHigh == false)
-                    {
-                        count = 0;
-                        currentHigh = true;
-                    }
-                    else
-                        count++;
+                    count++;
 
-                    if (count == 4)
+                    if (count == 1)
                     {
-                        Debug.Log("RunaDu¿a");
-                        chant[chantIndex++] = 1;
+                        ShowRune(0);
+                        chantIndex++;
                     }
-                    else if (count == 8)
+                    else if (count == 4)
                     {
-                        //tu zawraca na 0 i jak ktoœ bêdzie dalej g³oœny, to dotrze do 3 i bêdzie liczone jako dalsza czêœæ.
-                        count = 0;
+                        ShowRune(1);
+                        chantIndex++;
+                        Debug.Log("ting sound");
                     }
                 }
                 else if (chantIndex > 0)
                 {
-                    if (currentHigh == true)
+                    count++;
+                    if (count == 4)
                     {
-                        count = 0;
-                        currentHigh = false;
-                    }
-                    else
-                        count++;
-
-                    if (count == 3)
-                    {
-                        chant[chantIndex++] = 1;
-                        Debug.Log("RunaMa³a");
-                    }
-                    else if (count == 8)
-                    {
-                        //tu zawraca na 0 i jak ktoœ bêdzie dalej cichy, to dotrze do 3 i bêdzie liczone jako dalsza czêœæ.
-                        count = 0;
+                        ShowRune(2);
+                        chantIndex++;
+                        Debug.Log("ting sound");
                     }
                 }
-
-                if (chantIndex == 3)
+                else
                 {
-                    Debug.Log("Spell Cast");
-                    chantIndex = 0;
+                    count = 0;
+                }
+
+                if (chantIndex == 2)
+                {
+                    Invoke("ClearChant", 1);                  
                 }
 
                 elapsed = 0f;
@@ -115,14 +107,46 @@ public class MicrophoneInput : MonoBehaviour
         {
             wasActive = false;
 
-            volumeHistory = new float[3] { 0, 0, 1 };
+            volumeHistory = new float[3] { 0, 0, 0 };
             currentHigh = false;
             elapsed = 0f;
             count = 0;
             sampleIndex = 0;
 
-            chant = new int[3] { 0, 0, 0 };
+            ClearChant();
             chantIndex = 0;
         }
+    }
+
+    private void ShowRune(int pos)
+    {
+        foreach (Transform child in Words[pos].transform)
+        {
+            child.gameObject.gameObject.SetActive(true);
+        }
+    }
+
+    private void ClearChant()
+    {
+        for (int i = 0; i < Words.Count; i++)
+        {
+            foreach (Transform child in Words[i].transform)
+            {
+                child.gameObject.gameObject.SetActive(false);
+            }
+        }
+        chantIndex = 0; count = 0;
+    }
+
+    IEnumerator waiter()
+    {
+
+        //Wait for 4 seconds
+        yield return new WaitForSecondsRealtime(4);
+
+
+        //Wait for 2 seconds
+        yield return new WaitForSecondsRealtime(2);
+
     }
 }
