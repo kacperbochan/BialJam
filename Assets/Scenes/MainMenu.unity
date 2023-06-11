@@ -3000,11 +3000,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 694e857376e78203f8a1c97e8928fe1c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.531391
+      value: 12.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 694e857376e78203f8a1c97e8928fe1c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.1156187
+      value: -5.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 694e857376e78203f8a1c97e8928fe1c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3696,6 +3696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel_Sign
       objectReference: {fileID: 0}
+    - target: {fileID: 7327251868044171981, guid: 156b524cc884a650882f3b2d83b6565e, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: dcbccaa038628a24590b9f8b40189043, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

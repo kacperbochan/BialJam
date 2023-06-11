@@ -10,6 +10,8 @@ public class fatherChaseAudio : MonoBehaviour
     public AudioClip close;
     public AudioClip mid;
     public AudioClip far;
+    public AudioClip win;
+    public bool active = true;
     public int cur=0;
     void Start()
     {
@@ -19,37 +21,48 @@ public class fatherChaseAudio : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float distance = (father.transform.position - son.transform.position).magnitude;
+        if (active)
+        {
+            float distance = (father.transform.position - son.transform.position).magnitude;
 
 
-        if(distance<20)
-        {
-            if(cur!=1)
+            if (distance < 20)
             {
-                source.clip = close;
-                source.Play();
-                cur = 1;
+                if (cur != 1)
+                {
+                    source.clip = close;
+                    source.Play();
+                    cur = 1;
+                }
+
+            }
+            else
+            if (distance < 30)
+            {
+                if (cur != 2)
+                {
+                    source.clip = mid;
+                    source.Play();
+                    cur = 2;
+                }
+            }
+            else
+            if (distance < 50)
+            {
+                if (cur != 3)
+                {
+                    source.clip = far;
+                    source.Play();
+                    cur = 3;
+                }
             }
 
-        }else
-        if(distance<30)
-        {
-            if (cur != 2)
-            {
-                source.clip = mid;
-                source.Play();
-                cur = 2;
-            }
-        }else
-        if(distance<50)
-        {
-            if (cur != 3)
-            {
-                source.clip = far;
-                source.Play();
-                cur = 3;
-            }
         }
-        
+    }
+    public void Win()
+    {
+        active= false;
+        source.clip = win;
+        source.Play();
     }
 }
