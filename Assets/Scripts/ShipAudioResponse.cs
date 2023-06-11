@@ -6,7 +6,7 @@ public class PlayerShipAudioResponse: MonoBehaviour
 {
 	public AudioSource audioSource;
 
-
+    public Tarcze shields;
     public AudioClip iceCrack;
     public AudioClip sandCrack;
     public AudioClip woodCrack;
@@ -16,7 +16,7 @@ public class PlayerShipAudioResponse: MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-
+        GetComponent<ShipMovement>().maxSpeed = GetComponent<ShipMovement>().maxSpeed -20 ;
         if (collision.gameObject.layer == 0)
         {
             audioSource.clip= iceCrack;
@@ -24,7 +24,8 @@ public class PlayerShipAudioResponse: MonoBehaviour
         }
 		if (collision.gameObject.layer == 3)
 		{
-
+            shields.destroyShield();
+            collision.gameObject.layer = 1;
             audioSource.clip = woodCrack;
             audioSource.Play();
         }

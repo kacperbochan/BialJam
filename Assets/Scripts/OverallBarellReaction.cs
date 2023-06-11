@@ -26,7 +26,7 @@ public class OverallBarellReaction : MonoBehaviour
 		if (!passed)
 		{
 			Pass();
-			canvas.GetComponent<Tarcze>().destroyShield();
+			canvas.GetComponent<Tarcze>();
 		}
 	}
 }
