@@ -14,7 +14,7 @@ public class SuperBoulderSpawner : MonoBehaviour
         GameObject tmp= Instantiate(
             boulder,transform.position+new Vector3(Random.Range(-10,10), Random.Range(-10, 10), Random.Range(-10, 10))
             ,transform.rotation);
-        float randScale = Random.Range(5, 30) / 10f;
+        float randScale = Random.Range(5, 30) * 10f;
         tmp.transform.localScale= new Vector3(randScale,randScale,randScale);
         tmp.SetActive(true);
         
