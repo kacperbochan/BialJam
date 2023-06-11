@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 94910843436218d4c9ea3894fe1c2d0a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - iceCrack: {fileID: 784419648363470730, guid: 488381ceefbc6444c9305555b9cbfb31, type: 3}
+  - woodCrack: {fileID: 1446488605413908912, guid: cc1c6375ebb828a479abf964ee1e4a36, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
