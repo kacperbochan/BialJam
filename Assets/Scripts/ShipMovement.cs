@@ -52,7 +52,7 @@ public class ShipMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (velocity > 1)
-            maxSpeed += 550 * Time.deltaTime / Mathf.Pow(maxSpeed, 1.02f);
+            maxSpeed += 550 * Time.deltaTime / Mathf.Pow(maxSpeed, 1.2f);
         else
             maxSpeed = 10;
 
@@ -72,7 +72,7 @@ public class ShipMovement : MonoBehaviour
         rigidBody.AddForce(new Vector3(Mathf.Cos(piDeegre) * maxSpeed, 0, -Mathf.Sin(piDeegre) * maxSpeed), ForceMode.Force);
         if (wheelRotation != 0)// skret zalezny 
         {
-            maxSpeed = maxSpeed * (1 - (Mathf.Abs(wheelRotation)) / 400);
+            maxSpeed = maxSpeed * (1 - (Mathf.Abs(wheelRotation)) / 700);
 
                 transform.RotateAround(rotationPoint.transform.position, Vector3.up, roatationSpeed * Time.deltaTime * wheelRotation * (velocity+anchorInput*2));
             steeringWheel.transform.Rotate(Vector3.left, (roatationSpeed + anchorInput * 6) * Time.deltaTime * wheelRotation * 10);
@@ -84,6 +84,8 @@ public class ShipMovement : MonoBehaviour
             else
                 maxSpeed = 1;
         }
+        if (Input.GetKey(KeyCode.Space))
+            maxSpeed += 1;
 
 
 

@@ -17,10 +17,16 @@ public class ShipBot : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.LookAt(waypoints[0].transform);
+        transform.LookAt(waypoints[waypointIndex].transform);
+        transform.Rotate(0, -90, 0);
         float piDeegre = transform.rotation.eulerAngles.y / 180 * Mathf.PI;
         rigidBody.AddForce(new Vector3(Mathf.Cos(piDeegre) * maxSpeed, 0, -Mathf.Sin(piDeegre) * maxSpeed), ForceMode.Force);
-        if ((transform.position - waypoints[0].transform.position).magnitude < 0)
-            print('a');
+        if ((transform.position - waypoints[waypointIndex].transform.position).magnitude < 5)
+        {
+            if(waypointIndex!=(waypoints.Count-1))
+            waypointIndex++;
+            else
+            waypointIndex= 0;
+        }
     }
 }
