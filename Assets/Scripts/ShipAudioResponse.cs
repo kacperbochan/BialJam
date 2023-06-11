@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class PlayerShipAudioResponse: MonoBehaviour
 {
-    public AudioSource iceCrack;
-	public AudioSource woodCrack;
-	public void OnCollisionEnter(Collision collision)
+	public AudioSource audioSource;
+    public AudioClip iceCrack;
+	public AudioClip woodCrack;
+    private void Start()
     {
-        if (collision.gameObject.tag == "Default")
+        audioSource = GetComponent<AudioSource>();
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.layer == 0)
         {
-            iceCrack.Play();
+            audioSource.clip= iceCrack;
+            audioSource.Play();
         }
-		if (collision.gameObject.tag == "Wood")
+		if (collision.gameObject.layer == 3)
 		{
-			woodCrack.Play();
-		}
+
+            audioSource.clip = woodCrack;
+            audioSource.Play();
+        }
 	}
 }

@@ -6,6 +6,7 @@ public class FollowPlayer : MonoBehaviour
 {
     public Transform player;
     public Vector3 offset;
+    public float zmienna;
     [SerializeField] private Vector2 sensitivity;
     [SerializeField] private float maxVerticalCameraAngle;
 	[SerializeField] private float maxHorizontalCameraAngle;
@@ -38,14 +39,15 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        zmienna = player.transform.localEulerAngles.y;
         transform.position = player.position + offset;
 
         Vector2 wantedVelocity = GetInput() * sensitivity;
 
         rotation += wantedVelocity * Time.deltaTime;
         rotation.y = ClampVerticalAngle(rotation.y);
-        rotation.x = ClampHorizontalAngle(rotation.x);
+        rotation.x = ClampHorizontalAngle(rotation.x );
 
-        transform.localEulerAngles = new Vector3(rotation.y, rotation.x, 0);
+        transform.localEulerAngles = new Vector3(rotation.y, rotation.x+zmienna, 0);
     }
 }
