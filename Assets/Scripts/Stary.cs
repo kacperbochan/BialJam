@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stary : MonoBehaviour
 {
+    public FollowPlayer camera;
     public ShipMovement shipMovement;
     public GameObject ship;
     private Rigidbody rigidBody;
@@ -32,6 +33,7 @@ public class Stary : MonoBehaviour
             follow= ship.transform;
             if ((transform.position - follow.position).magnitude < 3)
             {
+                camera.player = ship.transform;
                 print("smierc.mp3");
                 ship.AddComponent<Rigidbody>();
                 //ship.GetComponent<BoxCollider>().enabled=false;
