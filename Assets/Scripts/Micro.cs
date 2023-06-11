@@ -5,12 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class MicrophoneInput : MonoBehaviour
 {
-    public GameManager manager;
-
     public bool isActive = true;
     public bool wasActive = false;
     
-    private List<VoiceSwitch> toSwitch = new List<VoiceSwitch>();
+    public List<VoiceSwitch> toSwitch = new List<VoiceSwitch>();
 
     private string selectedDevice;
     private AudioSource audioSource;
@@ -158,6 +156,7 @@ public class MicrophoneInput : MonoBehaviour
     {
         foreach (VoiceSwitch switcher in toSwitch)
         {
+            
             switcher.SwitchThis();
         }
     }

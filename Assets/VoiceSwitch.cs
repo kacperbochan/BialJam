@@ -12,17 +12,33 @@ public class VoiceSwitch : MonoBehaviour
     public float Radius = 20f;
     public bool isAdded = false;
 
+    void Start()
+    {
+        border.SetActive(false);
+        illegal.SetActive(true);
+    }
     void Update()
     {
         float dist = Vector3.Distance(player.transform.position, transform.position);
-
+        
         if (dist < Radius)
         {
             if (!isAdded)
             {
-                GameObject go = GameObject.Find("PlayerMicro");
+                isAdded = true;
+                GameObject go = GameObject.Find("EventSystem");
                 MicrophoneInput cs = go.GetComponent<MicrophoneInput>();
                 cs.AddToSwitch(this);
+
+            }
+        }
+        else
+        {
+            if (isAdded) {
+                isAdded = false;
+                GameObject go = GameObject.Find("EventSystem");
+                MicrophoneInput cs = go.GetComponent<MicrophoneInput>();
+                cs.RemoveToSwitch(this);
 
             }
         }
@@ -30,7 +46,6 @@ public class VoiceSwitch : MonoBehaviour
 
     public void SwitchThis()
     {
-        isAdded = false;
         original = !original;
         if (illegal != null) illegal.SetActive(!illegal.active);
         if (border != null) border.SetActive(!border.active);
