@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Tarcze : MonoBehaviour
 {
+    public ShipMovement ship;
+    public Thunder thunder;
     public int shieldLimit = 5;
     public int shieldCount = 3;
     public GameObject shieldPrefab;
@@ -37,7 +39,13 @@ public class Tarcze : MonoBehaviour
         }
         else
         {
-            //gameover
+            ship.enabled= false;
+            ship.gameObject.GetComponent<Rigidbody>().AddForce(Random.Range(-40, 40), 40, Random.Range(-40, 40), ForceMode.Impulse);
+            ship.gameObject.GetComponent<Rigidbody>().AddTorque(Random.Range(-100, 100), 0, 0, ForceMode.Impulse);
+            ship.gameObject.GetComponent<Rigidbody>().useGravity = true;
+            thunder.spawn();
+            Destroy(clone[shieldCount]);
+           
         }
     }
 
