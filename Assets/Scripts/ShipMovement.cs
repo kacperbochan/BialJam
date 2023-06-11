@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Rigidbody))]
 public class ShipMovement : MonoBehaviour
 {
     public Transform steeringWheel;
     public Rigidbody rigidBody;
+
+    MicrophoneInput cs;
+
     public float offset = 0;
 
     public float rotationForce = 0;
@@ -29,6 +33,9 @@ public class ShipMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject go = GameObject.Find("EventSystem");
+        cs = go.GetComponent<MicrophoneInput>();
+
         rigidBody = GetComponent<Rigidbody>();
     }
 
@@ -84,11 +91,17 @@ public class ShipMovement : MonoBehaviour
             else
                 maxSpeed = 1;
         }
-        if (Input.GetKey(KeyCode.Space))
+
+
+        
+        if (cs.isFaster)
             maxSpeed += 1;
 
 
+    }
 
+    public void SpeedUp (){
+     maxSpeed += 1;
     }
 
 }

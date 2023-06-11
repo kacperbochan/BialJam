@@ -8767,6 +8767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 1
   wasActive: 0
+  isFaster: 1
   toSwitch: []
   volume: 0
   volumeHistory:
@@ -32832,7 +32833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1239549135161410378, guid: d3b3069d13307eacbb6184e9b0987557, type: 3}
       propertyPath: m_Name
-      value: Ship
+      value: Hull
       objectReference: {fileID: 0}
     - target: {fileID: 1239549135161410378, guid: d3b3069d13307eacbb6184e9b0987557, type: 3}
       propertyPath: m_Layer
@@ -35863,7 +35864,7 @@ GameObject:
   - component: {fileID: 1155470144}
   - component: {fileID: 1155470145}
   m_Layer: 7
-  m_Name: 'Ship '
+  m_Name: SHIP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

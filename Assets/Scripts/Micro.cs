@@ -7,6 +7,7 @@ public class MicrophoneInput : MonoBehaviour
 {
     public bool isActive = true;
     public bool wasActive = false;
+    public bool isFaster = false;
     
     public List<VoiceSwitch> toSwitch = new List<VoiceSwitch>();
 
@@ -26,7 +27,7 @@ public class MicrophoneInput : MonoBehaviour
 
     void Start()
     {
-
+        
         ClearChant();
 
         // SprawdŸ, czy s¹ dostêpne mikrofony
@@ -77,7 +78,8 @@ public class MicrophoneInput : MonoBehaviour
                     {
                         ShowRune(1);
                         chantIndex++;
-                        Debug.Log("Speed UP");
+                        isFaster = true;
+
                         Debug.Log("ting sound");
                     }
                 }
@@ -139,7 +141,7 @@ public class MicrophoneInput : MonoBehaviour
                 child.gameObject.gameObject.SetActive(false);
             }
         }
-        chantIndex = 0; count = 0;
+        chantIndex = 0; count = 0; isFaster = false;
     }
 
     public void AddToSwitch(VoiceSwitch switcher)
