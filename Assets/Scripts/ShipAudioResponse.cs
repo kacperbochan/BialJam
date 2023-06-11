@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlayerShipAudioResponse: MonoBehaviour
 {
 	public AudioSource audioSource;
+
+
     public AudioClip iceCrack;
-	public AudioClip woodCrack;
+    public AudioClip sandCrack;
+    public AudioClip woodCrack;
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -25,5 +28,11 @@ public class PlayerShipAudioResponse: MonoBehaviour
             audioSource.clip = woodCrack;
             audioSource.Play();
         }
-	}
+        if (collision.gameObject.layer == 6)
+        {
+
+            audioSource.clip = sandCrack;
+            audioSource.Play();
+        }
+    }
 }
