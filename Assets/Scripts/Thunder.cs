@@ -19,6 +19,6 @@ public class Thunder : MonoBehaviour
         GameObject thunder = Instantiate(thunderOrigin, transform);
         audioSource.Play();
         ps.Play();
-        Destroy(thunder, 0.5f);
+        Destroy(thunder, 0.1f);
     }
 }
