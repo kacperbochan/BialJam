@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stary : MonoBehaviour
 {
+    public ShipMovement shipMovement;
     public GameObject ship;
     private Rigidbody rigidBody;
     public List<Transform> waypoints= new List<Transform>();
@@ -15,6 +16,12 @@ public class Stary : MonoBehaviour
     {
         rigidBody= GetComponent<Rigidbody>();
         InvokeRepeating("RespTime", 1f, 1f);  //1s delay, repeat every 1s
+        GameObject wayPoint = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        wayPoint.transform.position = ship.transform.position;
+        wayPoint.GetComponent<BoxCollider>().enabled = false;
+        wayPoint.GetComponent<MeshRenderer>().enabled = false;
+
+        waypoints.Add(wayPoint.transform);
     }
     void FixedUpdate()
     {
@@ -23,7 +30,19 @@ public class Stary : MonoBehaviour
 		if(waypointIndex==waypoints.Count)
         {
             follow= ship.transform;
-        }else
+            if ((transform.position - follow.position).magnitude < 3)
+            {
+                print("smierc.mp3");
+                ship.AddComponent<Rigidbody>();
+                //ship.GetComponent<BoxCollider>().enabled=false;
+                Rigidbody shipRB= ship.GetComponent<Rigidbody>();
+                shipRB.AddForce(Random.Range(-40,40), 40, Random.Range(-40, 40),ForceMode.Impulse);
+                shipRB.AddTorque(Random.Range(-100, 100), 0, 0, ForceMode.Impulse);
+                shipMovement.enabled= false;
+                this.enabled=false;
+            }
+        }
+        else
         {
             follow = waypoints[waypointIndex];
             if ((transform.position - follow.position).magnitude < 5)
@@ -39,9 +58,13 @@ public class Stary : MonoBehaviour
     }
     void RespTime()
     {
-        GameObject wayPoint= GameObject.CreatePrimitive(PrimitiveType.Cube);
-        wayPoint.transform.position = ship.transform.position;
-        wayPoint.GetComponent<BoxCollider>().enabled = false;
-        waypoints.Add(wayPoint.transform);
+        if ((ship.transform.position - waypoints[waypoints.Count - 1].transform.position).magnitude > 10)
+        {
+            GameObject wayPoint = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            wayPoint.transform.position = ship.transform.position;
+            wayPoint.GetComponent<BoxCollider>().enabled = false;
+            wayPoint.GetComponent<MeshRenderer>().enabled = false;
+            waypoints.Add(wayPoint.transform);
+        }
     }
 }
