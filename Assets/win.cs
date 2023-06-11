@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class win : MonoBehaviour
 {
+    public GameObject credits;
     public Stary father;
     public ShipMovement ship;
     public fatherChaseAudio FatherChaseAudio;
@@ -12,7 +13,7 @@ public class win : MonoBehaviour
     {
         if (collision.gameObject.layer == 7)
         {
-
+            credits.SetActive(true);
             FatherChaseAudio.Win();
             Destroy(this);
         }
