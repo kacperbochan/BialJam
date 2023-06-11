@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class MAinMenu : MonoBehaviour
 {
-	// Start is called before the first frame update
-	public void StartGame()
-	{
-		StartCoroutine(ChangeSceneWithDelay());
+    // Start is called before the first frame update
+    public void StartGame()
+    {
+        StartCoroutine(ChangeSceneWithDelay());
 	}
 
 	// Update is called once per frame
@@ -28,8 +28,8 @@ public class MAinMenu : MonoBehaviour
 		//Print the time of when the function is first called.
 		Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
-		//yield on a new YieldInstruction that waits for 5 seconds.
-		yield return new WaitForSeconds(4);
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(4);
 
 		// changed scene
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
