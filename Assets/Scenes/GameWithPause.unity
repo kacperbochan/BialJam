@@ -1079,7 +1079,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 405751584}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 1.5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2095,7 +2095,6 @@ GameObject:
   m_Component:
   - component: {fileID: 405751585}
   - component: {fileID: 405751584}
-  - component: {fileID: 405751583}
   m_Layer: 0
   m_Name: CanvasCamera
   m_TagString: Untagged
@@ -2103,14 +2102,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &405751583
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405751582}
-  m_Enabled: 1
 --- !u!20 &405751584
 Camera:
   m_ObjectHideFlags: 0
@@ -2867,7 +2858,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 576386951}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

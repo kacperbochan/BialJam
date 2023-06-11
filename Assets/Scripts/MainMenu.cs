@@ -6,36 +6,36 @@ using UnityEngine.SceneManagement;
 
 public class MAinMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void StartGame()
-    {
-        StartCoroutine(ChangeSceneWithDelay());
-    }
+	// Start is called before the first frame update
+	public void StartGame()
+	{
+		StartCoroutine(ChangeSceneWithDelay());
+	}
 
-    // Update is called once per frame
-    public void QuitGame()
-    {
-        Debug.Log("QUIT");
-        Application.Quit();
-    }
-    void Start()
-    {
-        //Start the coroutine we define below named ExampleCoroutine.
-    }
+	// Update is called once per frame
+	public void QuitGame()
+	{
+		Debug.Log("QUIT");
+		Application.Quit();
+	}
+	void Start()
+	{
+		//Start the coroutine we define below named ExampleCoroutine.
+	}
 
-    IEnumerator ChangeSceneWithDelay()
-    {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+	IEnumerator ChangeSceneWithDelay()
+	{
+		//Print the time of when the function is first called.
+		Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
-        //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(4);
+		//yield on a new YieldInstruction that waits for 5 seconds.
+		yield return new WaitForSeconds(4);
 
-        // changed scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		// changed scene
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-    }
+		//After we have waited 5 seconds print the time again.
+		Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+	}
 }
 
